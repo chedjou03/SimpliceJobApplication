@@ -30,20 +30,54 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- ***************************************** THYMELEAF ********************************************************-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<!-- ***************************************** SPRING WEB *******************************************************-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- ***************************************** SPRING TEST ******************************************************-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- ***************************************** BOOSTRAP ********************************************************-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.3.3</version>
+		</dependency>
+
+		<!-- ***************************************** JQUERY **********************************************************-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.7.1</version>
+		</dependency>
+
+		<!-- ***************************************** WEBJAR LOCATOR **************************************************-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.52</version>
+		</dependency>
+
+		<!-- ***************************************** FONT AWESOME  ***************************************************-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>6.5.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
