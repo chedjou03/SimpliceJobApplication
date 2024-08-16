@@ -1,0 +1,8 @@
+spring:
+  application:
+    name : jobportal
+  datasource:
+    url: jdbc:mysql://localhost:3306/jobportal
+    username: jobportal
+    password: jobportal
+    driver-class-name: com.mysql.cj.jdbc.Driver
