@@ -111,6 +111,18 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- ***************************************** SPRING SECURITY  ********************************************-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- ***************************************** THYMELEAF EXTRA SECURITY  ***********************************-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
 
 	</dependencies>
 
