@@ -1,7 +1,12 @@
 package com.chedjouJobPortal.jobportal.controller;
 
+import com.chedjouJobPortal.jobportal.Utilities.ConstantsUtilities;
+import com.chedjouJobPortal.jobportal.entity.JobSeekerProfile;
+import com.chedjouJobPortal.jobportal.entity.RecruiterProfile;
 import com.chedjouJobPortal.jobportal.entity.Users;
 import com.chedjouJobPortal.jobportal.entity.UsersType;
+import com.chedjouJobPortal.jobportal.repository.JobSeekerProfileRepository;
+import com.chedjouJobPortal.jobportal.repository.RecruiterProfileRepository;
 import com.chedjouJobPortal.jobportal.service.UsersService;
 import com.chedjouJobPortal.jobportal.service.UsersTypeService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,6 +35,16 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
+    @Autowired
+    private JobSeekerProfileRepository jobSeekerProfileRepository;
+
+    @Autowired
+    private  RecruiterProfileRepository recruiterProfileRepository;
+
+    @Autowired
+    private ConstantsUtilities constants;
+
+
 
     @GetMapping("/register")
     public String register(Model model){
@@ -51,8 +66,7 @@ public class UsersController {
             return "register";
         }
         usersService.addNew(users);
-        model.addAttribute("user", users);
-        return "dashboard";
+        return "redirect:/dashboard/";
     }
 
     @GetMapping("/login")
