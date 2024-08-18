@@ -40,7 +40,7 @@ public class RecruiterProfile {
     @Transient
     public String getPhotosImagePath(){
         if(profilePhoto == null) return null;
-        System.out.println("********************* " +"photos/recruiter/" + userAccountId + "/" + profilePhoto);
+        System.out.println("********************* " +"/photos/recruiter/" + userAccountId + "/" + profilePhoto);
         return "/photos/recruiter/" + userAccountId + "/" + profilePhoto;
     }
 }
