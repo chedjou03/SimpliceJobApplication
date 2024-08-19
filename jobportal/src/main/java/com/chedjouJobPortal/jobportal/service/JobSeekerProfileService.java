@@ -14,6 +14,11 @@ public class JobSeekerProfileService {
     @Autowired
     private JobSeekerProfileRepository jobSeekerProfileRepository;
 
+
+    public  JobSeekerProfile addNewJobSeekerProfile(JobSeekerProfile jobSeekerProfile) {
+        return jobSeekerProfileRepository.save(jobSeekerProfile);
+    }
+
     public Optional<JobSeekerProfile> getJobSeekerById(Integer id){
         return jobSeekerProfileRepository.findById(id);
     }
