@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class RecruiterProfile {
 
     @Id
-    private  int userAccountId;
+    private  Integer userAccountId;
 
     @OneToOne
     @JoinColumn(name="user_account_id")
@@ -39,7 +39,7 @@ public class RecruiterProfile {
 
     @Transient
     public String getPhotosImagePath(){
-        if(profilePhoto == null) return null;
+        if(null == userAccountId || null == profilePhoto) return null;
         System.out.println("********************* " +"/photos/recruiter/" + userAccountId + "/" + profilePhoto);
         return "/photos/recruiter/" + userAccountId + "/" + profilePhoto;
     }

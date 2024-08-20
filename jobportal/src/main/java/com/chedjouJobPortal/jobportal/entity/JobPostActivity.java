@@ -1,7 +1,10 @@
 package com.chedjouJobPortal.jobportal.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,10 +33,14 @@ public class JobPostActivity {
     private JobCompany jobCompanyId;
 
     @Transient
-    private boolean isActive;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private Boolean isActive;
 
     @Transient
-    private boolean isSaved;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    private Boolean isSaved;
 
     @Length(max=10000)
     private String descriptionOfJob;
@@ -50,6 +57,21 @@ public class JobPostActivity {
     private String jobTitle;
 
 
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Boolean getIsSaved() {
+        return isSaved;
+    }
+
+    public void setIsSaved(Boolean saved) {
+        isSaved = saved;
+    }
 
 
 

@@ -13,6 +13,17 @@ public class ConstantsUtilities {
 
     public static final String JOB_SEEKER = "Job Seeker";
 
+    public static final String PART_TIME = "Part-Time";
+
+    public static final String FULL_TIME = "Full-Time";
+
+    public static final String PARTIAL_REMOTE = "Partial-Remote";
+
+    public static final String FREELANCE = "Freelance";
+
+    public static final String REMOTE_ONLY = "Remote-Only";
+
+    public static final String OFFICE_ONLY = "Office-Only";
 
 
 }
