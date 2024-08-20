@@ -20,7 +20,7 @@
 <body>
 <header class="navbar navbar-expand-lg navbar-dark">
     <label class="mt-2 ms-5 font-weight-bold h5"
-    ><a th:href="@{/dashboard/}">WorldHotDevJobsBySimplice</a
+    ><a th:href="@{/dashboard/}">hotdevjobs</a
     ><span class="logo_com font-weight-bold h5" style="color: white">
           .com</span
     ></label
@@ -71,6 +71,7 @@
             </li>
 
         </ul>
+
         <img
                 class="rounded-circle me-3"
                 height="50px"
@@ -78,6 +79,7 @@
                 th:if="${user.photosImagePath!=null}"
                 th:src="@{${user?.photosImagePath}}"
         />
+
         <label th:if="${user.firstName != null && user.lastName != null}"
                th:text="${user.firstName+' '+user.lastName}"
                class="nav-item nav-link px-2 me-3">
@@ -92,6 +94,7 @@
 
 <section class="section">
     <div class="sidenav px-5">
+
         <div sec:authorize="hasAuthority('Job Seeker')">
 
             <label class="text-uppercase color-dull font-weight-bold">Filter Results</label>
@@ -228,8 +231,12 @@
                 <input id="hidLoc" name="location" th:value="${location}" hidden>
             </form>
         </div>
+
     </div>
+
+
     <article>
+
         <div class="box" sec:authorize="hasAuthority('Job Seeker')">
             <h1 class="primary-title">Candidate Dashboard</h1>
             <div class="inner">
@@ -306,5 +313,16 @@
         type="text/javascript"
         th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"
 ></script>
+
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script>
+    $('#job').change(function() {
+      $('#hidJob').val($(this).val());
+    });
+    $('#loc').change(function() {
+      $('#hidLoc').val($(this).val());
+    });
+</script>
+
 </body>
 </html>

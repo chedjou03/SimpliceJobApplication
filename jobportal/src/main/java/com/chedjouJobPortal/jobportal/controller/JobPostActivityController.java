@@ -112,7 +112,8 @@ public class JobPostActivityController {
             String currentUsername = authentication.getName();
             model.addAttribute("username", currentUsername);
             if(helper.isRecruter(authentication)){
-
+                List<RecruiterJobsDto> recruiterJobs = jobPostActivityService.getRecruiterJobs(((RecruiterProfile) currentUserProfile).getUserAccountId());
+                model.addAttribute("jobPost", recruiterJobs);
             }else if (helper.isJobSeeker(authentication)){
                 List<JobSeekerApply> jobSeekerApplyList = jobSeekerApplyService.getCandidatesJobs((JobSeekerProfile) currentUserProfile);
                 List<JobSeekerSave> jobSeekerSaveList = jobSeekerSaveService.getCandidatesJOb((JobSeekerProfile) currentUserProfile);
