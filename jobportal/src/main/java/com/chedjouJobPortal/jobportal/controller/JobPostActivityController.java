@@ -146,7 +146,7 @@ public class JobPostActivityController {
                         aJobPostActivity.setIsSaved(false);
                     }
 
-                    model.addAttribute("jobPost",aJobPostActivity);
+                    model.addAttribute("jobPost",jobPost);
                 }
             }
         }
