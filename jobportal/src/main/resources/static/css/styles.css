@@ -77,7 +77,14 @@ a.primary {
   padding: 5px;
   border-radius: 0.45rem;
   color: white;
-  background-color: #fb4f14;
+  background-color: #00bfff;
+}
+.logo_com_green {
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 0.45rem;
+  color: white;
+  background-color: #009933;
 }
 .logo_right {
   padding-top: 1.8rem;
@@ -346,7 +353,7 @@ label.large-label {
 }
 
 .myBtn {
-  background-color: #fb4f14;
+  background-color: #00bfff;
   border: none;
   border-radius: 5px;
   color: white;
