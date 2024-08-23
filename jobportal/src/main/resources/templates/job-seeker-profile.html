@@ -48,13 +48,25 @@
                             <h1 class="heading_font font-weight-bold">Candidate</h1>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div>
-                            <h2 class="heading_font d-flex justify-content-center">
-                                Set up your Profile
-                            </h2>
+                    <div sec:authorize="hasAuthority('Job Seeker')">
+                        <div class="col-md-12">
+                            <div>
+                                <h2 class="heading_font d-flex justify-content-center">
+                                    Set up your Profile
+                                </h2>
+                            </div>
                         </div>
                     </div>
+                    <div sec:authorize="hasAuthority('Recruiter')">
+                        <div class="col-md-12">
+                            <div>
+                                <h2 class="heading_font d-flex justify-content-center">
+                                     Profile
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <label class="heading_font font_sub_heading_color">Name</label>
                         <div class="row">
