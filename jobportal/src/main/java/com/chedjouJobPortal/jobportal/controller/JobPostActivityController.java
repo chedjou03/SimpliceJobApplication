@@ -185,5 +185,72 @@ public class JobPostActivityController {
     }
 
 
+    @GetMapping("/global-search/")
+    public String globalSearch(
+            Model model,   @RequestParam(value = "job", required = false) String job,
+            @RequestParam(value = "location",required = false) String location,
+            @RequestParam(value = "partTime",required = false) String partTime,
+            @RequestParam(value = "fullTime",required = false) String fullTime,
+            @RequestParam(value = "freelance",required = false) String freelance,
+            @RequestParam(value = "remoteOnly",required = false) String remoteOnly,
+            @RequestParam(value = "officeOnly",required = false) String officeOnly,
+            @RequestParam(value = "partialOnly",required = false) String partialRemote,
+            @RequestParam(value = "today",required = false) boolean today,
+            @RequestParam(value = "days7",required = false) boolean days7,
+            @RequestParam(value = "days30",required = false) boolean days30
+
+    ){
+        model.addAttribute("partTime", Objects.equals(partTime,constantsUtilities.PART_TIME));
+        model.addAttribute("fullTime", Objects.equals(fullTime,constantsUtilities.FULL_TIME));
+        model.addAttribute("freelance", Objects.equals(freelance,constantsUtilities.FREELANCE));
+
+        model.addAttribute("remoteOnly", Objects.equals(remoteOnly,constantsUtilities.REMOTE_ONLY));
+        model.addAttribute("officeOnly", Objects.equals(officeOnly,constantsUtilities.OFFICE_ONLY));
+        model.addAttribute("partialRemote", Objects.equals(partialRemote,constantsUtilities.PARTIAL_REMOTE));
+
+        model.addAttribute("today", today);
+        model.addAttribute("days7", days7);
+        model.addAttribute("days30", days30);
+
+        model.addAttribute("job", job);
+        model.addAttribute("partTime", location);
+
+        LocalDate searchDate = null;
+        List<JobPostActivity> jobPost = null;
+        boolean dateSearchFlag = true;
+        boolean remote = true;
+        boolean type = true;
+
+        searchDate = helper.getSearchDate(days30,days7,today);
+
+        if(partTime == null && fullTime == null && freelance == null){
+            partTime = constantsUtilities.PART_TIME;
+            fullTime = constantsUtilities.FULL_TIME;
+            freelance = constantsUtilities.FREELANCE;
+            remote = false;
+        }
+
+        if(officeOnly == null && remoteOnly == null & partialRemote == null){
+            remoteOnly = constantsUtilities.REMOTE_ONLY;
+            officeOnly = constantsUtilities.OFFICE_ONLY;
+            partialRemote = constantsUtilities.PARTIAL_REMOTE;
+            type = false;
+        }
+
+        if(!dateSearchFlag && !remote && !type && !StringUtils.hasText(job) && !StringUtils.hasText(location)){
+            jobPost = jobPostActivityService.getAllJobPost();
+        } else{
+            jobPost = jobPostActivityService.searchJobPost(job,
+                    location,
+                    Arrays.asList(partTime,fullTime,freelance),
+                    Arrays.asList(remoteOnly,officeOnly,partialRemote),
+                    searchDate);
+        }
+
+        model.addAttribute("jobPost",jobPost);
+
+        return "global-search";
+
+    }
 
 }
